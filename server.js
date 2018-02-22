@@ -49,9 +49,12 @@
 //     - notes.component.ts 
 
 //   - app.component.css 
-//   - app.component.html   
-//     - app-notes - notes 1a) (5a
-//     - noteAdded(newNoteEmmitter) 1b) 6b) 
+//   - app.component.html  
+        // METHODS
+            // - noteAdded() 1a) (5a
+                    // PARAMETERS
+                        // - newNoteEmitter
+//             - notes 1b) 6b) 
 //   0 app.components.ts 4b)
 //   - app.module.ts 
 
@@ -68,7 +71,7 @@ console.log( ' ************* server.js *************');
 var mongoose = require( 'mongoose' )
 var path = require( 'path' );
 var express = require( 'express' );
-var app = require( 'app' );
+var app = express();
 var bodyparser = require( 'body-parser' );
 
 app.use( bodyparser.urlencoded( {extended: true } ) );
@@ -78,7 +81,7 @@ app.use( express.static(__dirname + '/public/dist'));
 mongoose.connect( 'mongodb://localhost/MEAN_AnonymousNotes' )
 
 var NoteSchema = new mongoose.Schema( { 
-    text: {type: Strung, required: true, minlength: 3, maxlength: 256},
+    text: {type: String, required: true, minlength: 3, maxlength: 256},
 }, {timestamps: true} );
 let Note = mongoose.model('Note', NoteSchema);
 
